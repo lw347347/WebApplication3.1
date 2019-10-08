@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "SearchQueue";
+}
+
+<h2>SearchQueue</h2>
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+    <h3 class="w3-bar-item">Menu</h3>
+    <a href="@Url.Action("AddOneItem", "Queue")" class="w3-bar-item w3-button">Add one time to Queue</a>
+    <a href="@Url.Action("AddHugeList", "Queue")" class="w3-bar-item w3-button">Add Huge List of Items to Queue</a>
+    <a href="@Url.Action("DisplayQueue", "Queue")" class="w3-bar-item w3-button">Display Queue</a>
+    <a href="@Url.Action("ClearQueue", "Queue")" class="w3-bar-item w3-button">Clear Queue</a>
+    <a href="@Url.Action("SearchQueuePage", "Queue")" class="w3-bar-item w3-button">Search Queue</a>
+    <a href="@Url.Action("Index", "Index")" class="w3-bar-item w3-button">Return to Main Menu</a>
+</div>
+
+@Html.Raw(ViewBag.searchResult)
+
