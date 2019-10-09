@@ -19,7 +19,7 @@ namespace WebApplication3.Controllers
         }
         
         // This method adds an item to the queue
-        public string AddOneItem()
+        public ActionResult AddOneItem()
         {
             // Determine how many items are already in the queue
             int countMyQueue = myQueue.Count + 1;
@@ -31,12 +31,15 @@ namespace WebApplication3.Controllers
                 // Add it to the queue
                 myQueue.Enqueue(itemName);
 
+            // Create the result viewbag
+            ViewBag.Result = "Item added successfully to the queue.";
+
             // Send result back
-            return "Item added successfully to queue.";
+            return View("~/Views/Queue/Index.cshtml");
         }
 
         // This method adds 2000 items to the queue
-        public string AddHugeList()
+        public ActionResult AddHugeList()
         {
             // Clear the queue
             myQueue.Clear();
@@ -51,8 +54,11 @@ namespace WebApplication3.Controllers
                 myQueue.Enqueue(itemName);
             }
 
+            // Create the result viewbag
+            ViewBag.Result = "Huges list successfully added to the queue.";
+
             // Send result back
-            return "Huge list successfully added to queue.";
+            return View("~/Views/Queue/Index.cshtml");
         }
 
         // This method displays the items in the queue
@@ -69,13 +75,16 @@ namespace WebApplication3.Controllers
         }
 
         // This method clears the queue
-        public string ClearQueue()
+        public ActionResult ClearQueue()
         {
             // Clear the queue
             myQueue.Clear();
 
+            // Create the result viewbag
+            ViewBag.Result = "Queue cleared successfully.";
+
             // Send result back
-            return "Queue cleared successfully.";
+            return View("~/Views/Queue/Index.cshtml");
         }
 
         // This method sends you to the search queue page
@@ -115,10 +124,10 @@ namespace WebApplication3.Controllers
 
             // Create the viewbag 
             TimeSpan ts = sw.Elapsed;
-            ViewBag.searchResult = searchBox + " " + searchResult + " in " + ts + ".";
+            ViewBag.Result = searchBox + " " + searchResult + " in " + ts + ".";
 
             // Send the viewbag to the view
-            return View();
+            return View("~/Views/Dictionary/Index.cshtml");
         }
     }
 }
