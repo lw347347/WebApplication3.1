@@ -172,13 +172,10 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Queue\SearchQueuePage.cshtml" />
-    <Content Include="Views\Queue\SearchQueue.cshtml" />
     <Content Include="Views\Dictionary\DisplayDictionary.cshtml" />
     <Content Include="Views\Dictionary\SearchDictionaryPage.cshtml" />
-    <Content Include="Views\Dictionary\SearchDictionary.cshtml" />
     <Content Include="Views\Stack\DisplayStack.cshtml" />
     <Content Include="Views\Stack\SearchStackPage.cshtml" />
-    <Content Include="Views\Stack\SearchStack.cshtml" />
     <Content Include="Views\Shared\_dictionary.cshtml" />
     <Content Include="Views\Shared\_queue.cshtml" />
     <Content Include="Views\Shared\_stack.cshtml" />
@@ -199,6 +196,13 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <Target Name="CopyRoslynFiles" AfterTargets="AfterBuild" Condition="!$(Disable_CopyWebApplication) And '$(OutDir)' != '$(OutputPath)'">
+    <ItemGroup>
+      <RoslynFiles Include="$(CscToolPath)\*" />
+    </ItemGroup>
+    <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
+    <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
+  </Target>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

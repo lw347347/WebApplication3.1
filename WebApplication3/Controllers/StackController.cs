@@ -18,7 +18,7 @@ namespace WebApplication3.Controllers
         }
 
         // This method adds an item to the stack
-        public string AddOneItem()
+        public ActionResult AddOneItem()
         {
             // Determine how many items are already in the stack
             int countMyStack = myStack.Count + 1;
@@ -30,12 +30,15 @@ namespace WebApplication3.Controllers
                 // Add it to the stack
                 myStack.Push(itemName);
 
-                // Send result back
-                return "Item added successfully to stack.";
+            // Create the result viewbag
+            ViewBag.Result = "Item added successfully to the Stack.";
+
+            // Send result back
+            return View("~/Views/Stack/Index.cshtml");
         }
 
         // This method adds 2000 items to the stack
-        public string AddHugeList()
+        public ActionResult AddHugeList()
         {
             // Clear the stack
             myStack.Clear();
@@ -50,8 +53,11 @@ namespace WebApplication3.Controllers
                 myStack.Push(itemName);
             }
 
+            // Create the result viewbag
+            ViewBag.Result = "Huge list successfully added to the Stack.";
+
             // Send result back
-            return "Huge list successfully added to stack.";
+            return View("~/Views/Stack/Index.cshtml");
         }
 
         // This method displays the items in the stack
@@ -68,13 +74,16 @@ namespace WebApplication3.Controllers
         }
 
         // This method clears the stack
-        public string ClearStack()
+        public ActionResult ClearStack()
         {
             // Clear the stack
             myStack.Clear();
 
+            // Create the result viewbag
+            ViewBag.Result = "Stack successfully cleared.";
+
             // Send result back
-            return "Stack cleared successfully.";
+            return View("~/Views/Stack/Index.cshtml");
         }
 
         // This method sends you to the search stack page
@@ -115,10 +124,10 @@ namespace WebApplication3.Controllers
 
             // Create the viewbag 
             TimeSpan ts = sw.Elapsed;
-            ViewBag.searchResult = searchBox + " " + searchResult + " in " + ts + ".";
+            ViewBag.Result = searchBox + " " + searchResult + " in " + ts + ".";
 
-            // Send the viewbag to the view
-            return View();
+            // Send result back
+            return View("~/Views/Stack/Index.cshtml");
         }
     }
 }

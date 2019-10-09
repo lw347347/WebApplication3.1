@@ -18,7 +18,7 @@ namespace WebApplication3.Controllers
         }
 
         // This method adds an item to the queue
-        public string AddOneItem()
+        public ActionResult AddOneItem()
         {
             // Determine how many items are already in the dictionary
             int countMyDictionary = myDictionary.Count() + 1;
@@ -31,12 +31,15 @@ namespace WebApplication3.Controllers
                 // Add it to the dictionary
                 myDictionary.Add(itemKey, itemValue);
 
+            // Create the result viewbag
+            ViewBag.Result = "Item added successfully to the dictionary.";
+
             // Send result back
-            return "Item added successfully to the dictionary.";
+            return View("~/Views/Dictionary/Index.cshtml");
         }
 
         // This method adds 2000 items to the dictionary
-        public string AddHugeList()
+        public ActionResult AddHugeList()
         {
             // Clear the dictionary
             myDictionary.Clear();
@@ -52,8 +55,11 @@ namespace WebApplication3.Controllers
                 myDictionary.Add(itemKey, itemValue);
             }
 
+            // Create the result viewbag
+            ViewBag.Result = "Huge list successfully added to the dictionary.";
+
             // Send result back
-            return "Huge list successfully added to the dictionary.";
+            return View("~/Views/Dictionary/Index.cshtml");
         }
 
         // This method displays the items in the dictionary
@@ -70,13 +76,16 @@ namespace WebApplication3.Controllers
         }
 
         // This method clears the queue
-        public string ClearDictionary()
+        public ActionResult ClearDictionary()
         {
             // Clear the queue
             myDictionary.Clear();
 
+            // Create the result viewbag
+            ViewBag.Result = "Dictionary cleared successfully.";
+
             // Send result back
-            return "Dictionary cleared successfully.";
+            return View("~/Views/Dictionary/Index.cshtml");
         }
 
         // This method sends you to the search queue page
@@ -117,10 +126,10 @@ namespace WebApplication3.Controllers
 
             // Create the viewbag 
             TimeSpan ts = sw.Elapsed;
-            ViewBag.searchResult = searchBox + " " + searchResult + " in " + ts + ".";
+            ViewBag.Result = searchBox + " " + searchResult + " in " + ts + ".";
 
-            // Send the viewbag to the view
-            return View();
+            // Send result back
+            return View("~/Views/Dictionary/Index.cshtml");
         }
     }
 }
