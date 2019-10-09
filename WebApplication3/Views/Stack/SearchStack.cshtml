@@ -1,17 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "SearchStack";
+    Layout = "~/Views/Shared/_stack.cshtml";
 }
 
 <h2>SearchStack</h2>
-<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
-    <h3 class="w3-bar-item">Menu</h3>
-    <a href="@Url.Action("AddOneItem", "Stack")" class="w3-bar-item w3-button">Add one time to Stack</a>
-    <a href="@Url.Action("AddHugeList", "Stack")" class="w3-bar-item w3-button">Add Huge List of Items to Stack</a>
-    <a href="@Url.Action("DisplayStack", "Stack")" class="w3-bar-item w3-button">Display Stack</a>
-    <a href="@Url.Action("ClearStack", "Stack")" class="w3-bar-item w3-button">Clear Stack</a>
-    <a href="@Url.Action("SearchStackPage", "Stack")" class="w3-bar-item w3-button">Search Stack</a>
-    <a href="@Url.Action("Index", "Index")" class="w3-bar-item w3-button">Return to Main Menu</a>
-</div>
 @Html.Raw(ViewBag.searchResult)
 
