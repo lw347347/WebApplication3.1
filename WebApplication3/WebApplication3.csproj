@@ -179,6 +179,9 @@
     <Content Include="Views\Stack\DisplayStack.cshtml" />
     <Content Include="Views\Stack\SearchStackPage.cshtml" />
     <Content Include="Views\Stack\SearchStack.cshtml" />
+    <Content Include="Views\Shared\_dictionary.cshtml" />
+    <Content Include="Views\Shared\_queue.cshtml" />
+    <Content Include="Views\Shared\_stack.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
