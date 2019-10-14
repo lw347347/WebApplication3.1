@@ -5,9 +5,22 @@
 }
 
 <h2>Dictionary</h2>
-<div>
-    <p name="viewbagResult" id="viewbagResult">@ViewBag.Result</p>
+<div name="viewbagResult" id="viewbagResult">
+    <p>@ViewBag.Result</p>
 </div>
+
+<div name="display" id="display">
+    <!-- Display the viewbag for all of the dictionaries-->
+    @Html.Raw(ViewBag.displayDictionary)
+</div>
+<form name="dictionaryDeleteForm" id="dictionaryDeleteForm" action="@Url.Action("DeleteDictionary", "Dictionary")" method="post" style="display:none">
+    Which dictionary value do you want to delete? <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
+<form name="dictionarySearchForm" id="dictionarySearchForm" action="@Url.Action("SearchDictionary", "Dictionary")" method="post" style="display:none">
+    Search for... <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
 <script>
     myTimer();
 </script>

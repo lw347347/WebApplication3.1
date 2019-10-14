@@ -150,7 +150,6 @@
     <Content Include="Views\Stack\Index.cshtml" />
     <Content Include="Views\Queue\Index.cshtml" />
     <Content Include="Views\Dictionary\Index.cshtml" />
-    <Content Include="Views\Queue\DisplayQueue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -171,17 +170,9 @@
     <Content Include="Views\Index\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
-    <Content Include="Views\Queue\SearchQueuePage.cshtml" />
-    <Content Include="Views\Dictionary\DisplayDictionary.cshtml" />
-    <Content Include="Views\Dictionary\SearchDictionaryPage.cshtml" />
-    <Content Include="Views\Stack\DisplayStack.cshtml" />
-    <Content Include="Views\Stack\SearchStackPage.cshtml" />
     <Content Include="Views\Shared\_dictionary.cshtml" />
     <Content Include="Views\Shared\_queue.cshtml" />
     <Content Include="Views\Shared\_stack.cshtml" />
-    <Content Include="Views\Dictionary\DeleteDictionaryPage.cshtml" />
-    <Content Include="Views\Stack\DeleteStackPage.cshtml" />
-    <Content Include="Views\Queue\DeleteQueuePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

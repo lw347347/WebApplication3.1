@@ -36,9 +36,9 @@
             <a href="@Url.Action("AddOneItem", "Stack")" class="w3-bar-item w3-button">Add one time to Stack</a><br />
             <a href="@Url.Action("AddHugeList", "Stack")" class="w3-bar-item w3-button">Add Huge List of Items to Stack</a><br />
             <a href="@Url.Action("DisplayStack", "Stack")" class="w3-bar-item w3-button">Display Stack</a><br />
-            <a href="@Url.Action("DeleteStackPage", "Stack")" class="w3-bar-item w3-button">Delete from Stack</a><br />
+            <button onclick="toggleBoxes('stackDeleteForm')" class="w3-bar-item w3-button">Delete from Stack</button><br />
             <a href="@Url.Action("ClearStack", "Stack")" class="w3-bar-item w3-button">Clear Stack</a><br />
-            <a href="@Url.Action("SearchStackPage", "Stack")" class="w3-bar-item w3-button">Search Stack</a><br />
+            <button onclick="toggleBoxes('stackSearchForm')" class="w3-bar-item w3-button">Search Stack</button><br />
             <a href="@Url.Action("Index", "Index")" class="w3-bar-item w3-button">Return to Main Menu</a>
         </div>
         @RenderBody()

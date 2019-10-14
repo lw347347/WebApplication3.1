@@ -36,9 +36,9 @@
             <a href="@Url.Action("AddOneItem", "Queue")" class="w3-bar-item w3-button">Add one time to Queue</a><br />
             <a href="@Url.Action("AddHugeList", "Queue")" class="w3-bar-item w3-button">Add Huge List of Items to Queue</a><br />
             <a href="@Url.Action("DisplayQueue", "Queue")" class="w3-bar-item w3-button">Display Queue</a><br />
-            <a href="@Url.Action("DeleteQueuePage", "Queue")" class="w3-bar-item w3-button">Delete from Queue</a><br />
+            <button onclick="toggleBoxes('queueDeleteForm')" class="w3-bar-item w3-button">Delete from Queue</button><br />
             <a href="@Url.Action("ClearQueue", "Queue")" class="w3-bar-item w3-button">Clear Queue</a><br />
-            <a href="@Url.Action("SearchQueuePage", "Queue")" class="w3-bar-item w3-button">Search Queue</a><br />
+            <button onclick="toggleBoxes('queueSearchForm');"class="w3-bar-item w3-button">Search Queue</button><br />
             <a href="@Url.Action("Index", "Index")" class="w3-bar-item w3-button">Return to Main Menu</a>
         </div>
         @RenderBody()

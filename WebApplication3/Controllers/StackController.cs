@@ -70,7 +70,7 @@ namespace WebApplication3.Controllers
             }
 
             // Send it to the view
-            return View();
+            return View("~/Views/Stack/Index.cshtml");
         }
 
         // This method clears the stack
