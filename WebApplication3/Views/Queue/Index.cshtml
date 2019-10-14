@@ -5,9 +5,23 @@
 }
 
 <h2>Queue</h2>
-<div>
-    <p name="viewbagResult" id="viewbagResult">@ViewBag.Result</p>
+<div name="viewbagResult" id="viewbagResult">
+    <p>@ViewBag.Result</p>
 </div>
+
+<div name="display" id="display">    
+    <!-- Display the viewbag for all of the queues-->
+    @Html.Raw(ViewBag.displayQueue)
+</div>
+
+<form action="@Url.Action("SearchQueue", "Queue")" method="post" id="queueSearchForm" style="display:none">
+    Search for... <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
+<form action="@Url.Action("DeleteQueue", "Queue")" method="post" id="queueDeleteForm" style="display:none">
+    Which queue item do you want to delete? <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
 <script>
     myTimer();
 </script>

@@ -71,7 +71,7 @@ namespace WebApplication3.Controllers
             }
 
             // Send it to the view
-            return View();
+            return View("~/Views/Queue/Index.cshtml");
         }
 
         // This method clears the queue

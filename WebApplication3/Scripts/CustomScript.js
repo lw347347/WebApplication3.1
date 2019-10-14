@@ -24,3 +24,18 @@ setTimeout(function myTimer() {
         }
     }, 200);
 }, 1000)
+
+// This function displays and hides search and delete boxes
+function toggleBoxes(ID) {
+    // Hide the viewbag result
+    document.getElementById('display').style.display = "none";
+
+    // Check if the element is already hidden
+    if (document.getElementById(ID).style.display == "none") {
+        // Make it visible
+        document.getElementById(ID).style.display = "block";
+    } else {
+        // Make it hidden
+        document.getElementById(ID).style.display = "none";
+    }
+}

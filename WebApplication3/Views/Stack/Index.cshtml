@@ -8,6 +8,19 @@
 <div>
     <p name="viewbagResult" id="viewbagResult">@ViewBag.Result</p>
 </div>
+
+<div name="display" id="display">
+    @Html.Raw(ViewBag.displayStack)
+</div>
+
+<form name="stackDeleteForm" id="stackDeleteForm" action="@Url.Action("DeleteStack", "Stack")" method="post" style="display:none">
+    Which stack item do you want to delete? <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
+<form name="stackSearchForm" id="stackSearchForm" action="@Url.Action("SearchStack", "Stack")" method="post" style="display:none">
+    Search for... <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
 <script>
     myTimer();
 </script>
