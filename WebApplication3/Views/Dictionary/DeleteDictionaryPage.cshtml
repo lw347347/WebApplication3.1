@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "DeleteDictionaryPage";
+    Layout = "~/Views/Shared/_dictionary.cshtml";
+}
+
+<h2>DeleteDictionaryPage</h2>
+<form action="@Url.Action("DeleteDictionary", "Dictionary")" method="post">
+    Which dictionary value do you want to delete? <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
+

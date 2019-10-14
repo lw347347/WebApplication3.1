@@ -88,7 +88,7 @@ namespace WebApplication3.Controllers
             return View("~/Views/Dictionary/Index.cshtml");
         }
 
-        // This method sends you to the search queue page
+        // This method sends you to the search dictionary page
         public ActionResult SearchDictionaryPage()
         {
             return View();
@@ -129,6 +129,49 @@ namespace WebApplication3.Controllers
             ViewBag.Result = searchBox + " " + searchResult + " in " + ts + ".";
 
             // Send result back
+            return View("~/Views/Dictionary/Index.cshtml");
+        }
+
+        // This method sends you to the delete dictionary page
+        public ActionResult DeleteDictionaryPage()
+        {
+            return View();
+        }
+
+        // This method deletes an item from the dictionary
+        public ActionResult DeleteDictionary(string searchBox)
+        {
+            // Make sure the item exists
+            bool itemExists = false;
+            foreach(KeyValuePair<int, string> item in myDictionary)
+            {
+                if (searchBox == item.Value)
+                {
+                    // The item exists
+                    itemExists = true;
+
+                    // Delete the item
+                    myDictionary.Remove(item.Key);
+
+                    // Create the viewbag
+                    ViewBag.Result = item.Value + " was removed successfully.";
+
+                    // Kick us out of the loop
+                    break;
+                } else
+                {
+                    // The item still does not exist                    
+                }
+            }
+
+            // Create the viewbag if the item does not exist
+            if (itemExists == false)
+            {
+                // Create the viewbag
+                ViewBag.Result = "The item could not be deleted because it could not be found.";
+            }
+
+            // Return the result
             return View("~/Views/Dictionary/Index.cshtml");
         }
     }
