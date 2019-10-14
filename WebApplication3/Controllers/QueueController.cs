@@ -127,7 +127,66 @@ namespace WebApplication3.Controllers
             ViewBag.Result = searchBox + " " + searchResult + " in " + ts + ".";
 
             // Send the viewbag to the view
-            return View("~/Views/Dictionary/Index.cshtml");
+            return View("~/Views/Queue/Index.cshtml");
+        }
+
+        // This method sends you to the delete queue page
+        public ActionResult DeleteQueuePage()
+        {
+            return View();
+        }
+
+        // This method deletes an item from the stack
+        public ActionResult DeleteQueue(string searchBox)
+        {
+            // Declare variables
+            Queue<string> myTempQueue = new Queue<string>();
+            string tempVariable;
+
+            // Make sure the item exists
+            bool itemExists = false;
+            for (int iCount = 0; iCount < myQueue.Count;)
+            {
+                // Put the item in the temporary variable
+                tempVariable = myQueue.Dequeue();
+
+                if (searchBox == tempVariable)
+                {
+                    // The item exists
+                    itemExists = true;
+
+                    // Create the viewbag
+                    ViewBag.Result = searchBox + " was removed successfully.";
+
+                    // Add everything back onto myQueue in order
+                    while (myQueue.Count > 0)
+                    {
+                        myTempQueue.Enqueue(myQueue.Dequeue());
+                    }
+                        // Make the temp queue myQueue so that it's in order
+                        myQueue = myTempQueue;
+          
+
+                    // Kick us out of the loop
+                    break;
+                }
+                else
+                {
+                    // The item still does not exist
+                    // Add the checked item to the temporary queue
+                    myTempQueue.Enqueue(tempVariable);
+                }
+            }
+
+            // Create the viewbag if the item does not exist
+            if (itemExists == false)
+            {
+                // Create the viewbag
+                ViewBag.Result = "The item could not be deleted because it could not be found.";
+            }
+
+            // Return the result
+            return View("~/Views/Queue/Index.cshtml");
         }
     }
 }

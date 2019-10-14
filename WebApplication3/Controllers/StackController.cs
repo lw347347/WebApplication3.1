@@ -129,5 +129,61 @@ namespace WebApplication3.Controllers
             // Send result back
             return View("~/Views/Stack/Index.cshtml");
         }
+
+        // This method sends you to the delete stack page
+        public ActionResult DeleteStackPage()
+        {
+            return View();
+        }
+
+        // This method deletes an item from the stack
+        public ActionResult DeleteStack(string searchBox)
+        {
+            // Declare variables
+            Stack<string> myTempStack = new Stack<string>();
+            string tempVariable;
+
+            // Make sure the item exists
+            bool itemExists = false;
+            for (int iCount = 0; iCount < myStack.Count; )
+            {
+                // Put the item in the temporary variable
+                tempVariable = myStack.Pop();
+
+                if (searchBox == tempVariable)
+                {
+                    // The item exists
+                    itemExists = true;
+
+                    // Create the viewbag
+                    ViewBag.Result = searchBox + " was removed successfully.";
+
+                    // Add everything back onto myStack
+                    while (myTempStack.Count > 0)
+                    {
+                        myStack.Push(myTempStack.Pop());
+                    }                     
+
+                    // Kick us out of the loop
+                    break;
+                }
+                else
+                {
+                    // The item still does not exist
+                    // Add the checked item to the temporary stack
+                    myTempStack.Push(tempVariable);
+                }
+            }
+
+            // Create the viewbag if the item does not exist
+            if (itemExists == false)
+            {
+                // Create the viewbag
+                ViewBag.Result = "The item could not be deleted because it could not be found.";
+            }
+
+            // Return the result
+            return View("~/Views/Stack/Index.cshtml");
+        }
     }
 }

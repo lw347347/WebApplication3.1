@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "DeleteStackPage";
+    Layout = "~/Views/Shared/_stack.cshtml";
+}
+
+<h2>DeleteStackPage</h2>
+<form action="@Url.Action("DeleteStack", "Stack")" method="post">
+    Which stack item do you want to delete? <input type="text" name="searchBox" id="searchBox" />
+    <input type="submit" name="submit" id="submit" />
+</form>
+
