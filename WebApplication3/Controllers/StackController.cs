@@ -86,12 +86,6 @@ namespace WebApplication3.Controllers
             return View("~/Views/Stack/Index.cshtml");
         }
 
-        // This method sends you to the search stack page
-        public ActionResult SearchStackPage()
-        {
-            return View();
-        }
-
         // This method returns the results from the search page
         public ActionResult SearchStack(string searchBox)
         {
@@ -128,12 +122,6 @@ namespace WebApplication3.Controllers
 
             // Send result back
             return View("~/Views/Stack/Index.cshtml");
-        }
-
-        // This method sends you to the delete stack page
-        public ActionResult DeleteStackPage()
-        {
-            return View();
         }
 
         // This method deletes an item from the stack

@@ -87,12 +87,6 @@ namespace WebApplication3.Controllers
             return View("~/Views/Queue/Index.cshtml");
         }
 
-        // This method sends you to the search queue page
-        public ActionResult SearchQueuePage()
-        {
-            return View();
-        }
-
         // This method returns the results from the search page
         public ActionResult SearchQueue(string searchBox)
         {
@@ -128,12 +122,6 @@ namespace WebApplication3.Controllers
 
             // Send the viewbag to the view
             return View("~/Views/Queue/Index.cshtml");
-        }
-
-        // This method sends you to the delete queue page
-        public ActionResult DeleteQueuePage()
-        {
-            return View();
         }
 
         // This method deletes an item from the stack
