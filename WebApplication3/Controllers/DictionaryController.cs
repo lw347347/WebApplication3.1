@@ -88,12 +88,6 @@ namespace WebApplication3.Controllers
             return View("~/Views/Dictionary/Index.cshtml");
         }
 
-        // This method sends you to the search dictionary page
-        public ActionResult SearchDictionaryPage()
-        {
-            return View();
-        }
-
         // This method returns the results from the search page
         public ActionResult SearchDictionary(string searchBox)
         {
@@ -130,12 +124,6 @@ namespace WebApplication3.Controllers
 
             // Send result back
             return View("~/Views/Dictionary/Index.cshtml");
-        }
-
-        // This method sends you to the delete dictionary page
-        public ActionResult DeleteDictionaryPage()
-        {
-            return View();
         }
 
         // This method deletes an item from the dictionary
