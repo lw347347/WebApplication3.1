@@ -99,6 +99,7 @@
     <Content Include="Content\CustomStyleSheet.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Graphics\abstract_blue_geometric.jpeg" />
     <Content Include="Graphics\streetart2.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
